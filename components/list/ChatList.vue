@@ -107,9 +107,14 @@ const sortedChats = computed(() => {
   });
 });
 
-const selectedChats = ref(null);
+const selectedChat = ref(null);
+// Fixed: emit name matches what the parent component expects
+const emit = defineEmits(["select-chat"]);
+
 const handleSelect = (chat) => {
-  selectedChats.value = chat;
+  selectedChat.value = chat;
+  // Fixed: emit name matches what we defined
+  emit("select-chat", chat);
 };
 </script>
 
@@ -129,7 +134,7 @@ const handleSelect = (chat) => {
           @click="handleSelect(chat)"
           :class="[
             'cursor-pointer',
-            selectedChats?.id === chat.id ? 'bg-blue-50' : '',
+            selectedChat?.id === chat.id ? 'bg-blue-50' : '',
           ]"
         >
           <ChatItem :chat="chat" />
