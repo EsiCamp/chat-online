@@ -13,6 +13,11 @@ const props = defineProps({
 });
 
 const messages = ref([]);
+const operator = ref({
+  initials: "اپ",
+  avatarColor: "#3399ff",
+  name: "اپراتور پشتیبانی",
+});
 
 watch(
   () => props.conversation,
@@ -125,19 +130,17 @@ const sendMessage = () => {
 
 <template>
   <div v-if="conversation" class="flex flex-col h-full">
-    <div class="bg-white p-4 border-b">
+    <div class="bg-white p-4 border-b border-[#dcdcdc]">
       <div class="flex items-center gap-3">
         <div
-          class="grid place-items-center w-[40px] h-[40px] rounded-full"
+          class="grid place-items-center w-[60px] h-[60px] rounded-full"
           :style="{ backgroundColor: conversation.avatarColor || '#0066ff' }"
         >
           <span class="text-white text-sm">{{ conversation.initials }}</span>
         </div>
-        <div>
+        <div class="flex flex-col gap-y-2">
           <div class="font-bold">{{ conversation.name }}</div>
-          <div class="text-sm text-gray-500">
-            {{ conversation.department }} • {{ conversation.website }}
-          </div>
+          <div class="text-sm text-gray-500">آنلاین</div>
         </div>
       </div>
     </div>
@@ -156,11 +159,12 @@ const sendMessage = () => {
           v-else
           :message="message"
           :isOwn="message.senderId === 'operator'"
+          :operator="operator"
         />
       </div>
     </div>
 
-    <div class="bg-white p-3 border-t">
+    <div class="bg-white p-3 border-t border-[#dcdcdc]">
       <div class="flex gap-2">
         <input
           v-model="newMessage"

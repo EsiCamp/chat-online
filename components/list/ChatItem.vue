@@ -11,7 +11,6 @@ defineProps({
   <div
     class="flex flex-col md:flex-row items-center gap-2 p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors"
   >
-    <!-- Avatar Section -->
     <div class="w-full md:w-1/4 flex justify-center mb-4 md:mb-0">
       <div
         class="grid place-items-center w-[80px] h-[80px] rounded-full"
@@ -21,9 +20,7 @@ defineProps({
       </div>
     </div>
 
-    <!-- Content Section -->
     <div class="w-full md:w-3/4 flex flex-col gap-y-3">
-      <!-- Tags -->
       <div class="flex gap-x-1">
         <span
           class="bg-[#d2e5cc] text-sm text-[#638657] rounded-lg px-2 py-0.5 w-1/3 text-center truncate"
@@ -39,7 +36,6 @@ defineProps({
         >
       </div>
 
-      <!-- Name and Unread Count -->
       <div class="flex justify-between items-center">
         <span class="font-bold">{{ chat.name }}</span>
         <span
@@ -49,7 +45,6 @@ defineProps({
         >
       </div>
 
-      <!-- Last Message and Time -->
       <div class="flex justify-between items-center">
         <span class="font-semibold text-sm text-[#999] truncate max-w-[70%]">{{
           chat.lastMessage

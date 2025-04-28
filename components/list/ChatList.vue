@@ -108,12 +108,10 @@ const sortedChats = computed(() => {
 });
 
 const selectedChat = ref(null);
-// Fixed: emit name matches what the parent component expects
 const emit = defineEmits(["select-chat"]);
 
 const handleSelect = (chat) => {
   selectedChat.value = chat;
-  // Fixed: emit name matches what we defined
   emit("select-chat", chat);
 };
 </script>
